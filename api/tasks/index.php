@@ -1,6 +1,6 @@
 <?php
 // Recupero l'indirizzo del file che simula il database
-$database_path = __DIR__ . '/../../database/tasks.json';
+$database_path = __DIR__ . '/../../api/database/tasks.json';
 
 // leggo il contenuto JSON
 $json_data = file_get_contents($database_path);
