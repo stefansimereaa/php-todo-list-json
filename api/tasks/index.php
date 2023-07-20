@@ -1,28 +1,24 @@
 <?php
-// Recupero 1' indirizzo del file che simula il database
+// Recupero l'indirizzo del file che simula il database
 $database_path = __DIR__ . '/../../database/tasks.json';
 
 // leggo il contenuto JSON
 $json_data = file_get_contents($database_path);
 
-
 // Lo converto in un array PHP
 $tasks = json_decode($json_data, true);
 
-
 // Controlliamo se abbiamo qualcosa in post
-$new_task = $_POSTt['task'] ?? null;
+$new_task = $_POST['task'] ?? null;
 if ($new_task) {
     $tasks[] = $new_task;
 
-    $json_tasks = json_decode($tasks);
+    $json_tasks = json_encode($tasks);
     file_put_contents($database_path, $json_tasks);
 
-    header('Content-Type: applications/json');
+    header('Content-Type: application/json');
     echo $new_task;
 } else {
-
-    header('Content-Type: applications/json');
-
+    header('Content-Type: application/json');
     echo json_encode($tasks);
 }
