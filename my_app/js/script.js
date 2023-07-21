@@ -18,17 +18,7 @@ const app = createApp({
           this.newTask = '';
         });
     },
-    toggleTaskCompleted(task) {
-      task.completed = !task.completed;
-      const config = { headers: { 'Content-Type': 'application/json' } };
-      axios.put(`http://localhost/php-todo-list-json/api/tasks/${task.id}`, task, config)
-        .then(res => {
-        })
-        .catch(error => {
-          console.error('Error while updating task:', error);
-          task.completed = !task.completed;
-        });
-    },
+
   },
   created() {
     axios.get('http://localhost/php-todo-list-json/api/tasks/').then((res) => {

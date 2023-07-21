@@ -31,11 +31,8 @@
           <div class="col-12">
             <h1>TODO List</h1>
             <ul class="list-group list-group-flush border border-1 rounded">
-              <li v-for="task in tasks" :key="task.id"
-                :class="{ 'list-group list-group-item': true, 'completed': task.completed }"
-                @click="toggleTaskCompleted(task)">
-                <span :style="{ textDecoration: task.completed ? 'line-through' : 'none' }">{{ task.task }}</span>
-                <button @click="deleteTask(task)">Elimina</button>
+              <li v-for="(task, i) in tasks" :key="i" class="list-group list-group-item">
+                {{ task }}
               </li>
             </ul>
           </div>
